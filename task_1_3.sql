@@ -6,6 +6,7 @@ CREATE PROCEDURE pc_get_operations_report(dt_start datetime, dt_end datetime)
 BEGIN
 	with cte_borders as 
     (
+		/*предрасчитываю границы периодов, которые нужно будет взять из агрегатов и из детализированных операций*/
 		select 
 			if (dt_start > cast(dt_start as date), dt_start, null) dt_detail_start, 
 			if (dt_end > cast(dt_end as date), dt_end, null) dt_detail_end, 

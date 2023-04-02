@@ -13,6 +13,7 @@ create table if not exists log_check_user (
 alter table log_check_user partition by range(unix_timestamp(dt)) 
 (partition log_check_user_20230327 values less than (unix_timestamp('2023-03-27 00:00:00')));
 
+
 drop procedure if exists pc_add_log_check_user_partition;
 delimiter $$
 create procedure pc_add_log_check_user_partition(dt_key date)
@@ -32,6 +33,11 @@ begin
 	execute stmt;
 end;
 
+/* 
+	логика ротации 
+	1. нахожу все партиции из information_schema.partitions старше days_before и удаляю в курсоре. 
+	2. нахожу все дни от сегодня до days_forward для которых нет партиций и создаю в курсоре. 
+*/
 drop procedure if exists pc_rotate_log;
 delimiter $$
 create procedure pc_rotate_log(days_before int, days_forward int)

@@ -72,6 +72,8 @@ values
     
 set @@cte_max_recursion_depth = 10000000;
 
+/*генерирую фиксированное количество юзерво*/
+
 insert into users (id_currency, id_country)
 with recursive iterator(n) as (
     select 1
@@ -83,6 +85,8 @@ select
     ceiling(rand()*(select max(id_country) from countries)) id_country
 from iterator;
 
+
+/*генерирую операции: в цикле по дням с примерным количеством операций*/
 drop procedure if exists pc_generate_operations;
 delimiter $$
 create procedure pc_generate_operations(dt_start date, dt_end date, rows_in_day int)
