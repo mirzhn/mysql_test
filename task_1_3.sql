@@ -30,9 +30,9 @@ BEGIN
 	select 
 		coalesce(c.name_country, 'total') name_country,
 		coalesce(t.name_oper, 'total') name_oper,
-		sum((op.amount_oper)) total_sum, 
-		sum((op.amount_oper) * (t.comission / 100)) total_comission, 
-		sum((op.amount_oper) * (1 - t.comission / 100) / cr.base_rate) total_without_comission_ruble
+		sum((op.amount_oper) / cr.base_rate) total_sum, 
+		sum((op.amount_oper) * (t.comission / 100) / cr.base_rate) total_comission, 
+		sum((op.amount_oper) * (1 - t.comission / 100) / cr.base_rate) total_without_comission
 	from cte_operations op 
 		inner join users u 
 			on u.id_user = op.id_user
