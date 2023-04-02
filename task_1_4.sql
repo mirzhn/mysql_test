@@ -5,8 +5,8 @@ delimiter $$
 create procedure pc_get_operations_report_by_user(dt_start datetime, dt_end datetime, p_id_user int)
 begin
 	select 
-        coalesce(t.name_oper, 'total') name_oper, 
-        sum((op.amount_oper * move)) amount_oper 
+		coalesce(t.name_oper, 'total') name_oper, 
+		sum((op.amount_oper * move)) amount_oper 
 	from operations op 
 		inner join type_opers t
 			on t.id_type_oper = op.id_type_oper
