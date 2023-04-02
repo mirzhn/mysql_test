@@ -19,4 +19,3 @@ end;
 delimiter ;
 
 call pc_get_operations_report_by_user('2023-03-30', '2023-03-31', 370);
-

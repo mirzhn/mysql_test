@@ -49,4 +49,3 @@ END;
 
 DELIMITER ;
 call pc_get_report_by_date('2023-03-28 14:00:00', '2023-04-01 14:00:00');
-
