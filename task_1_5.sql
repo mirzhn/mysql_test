@@ -12,7 +12,7 @@ begin
 		(@rn := @rn + 1) rnk
 	from (
 		select 
-			coalesce(t.name_oper, 'total') name_oper
+			t.name_oper
 		from operations op 
 			inner join type_opers t
 				on t.id_type_oper = op.id_type_oper
