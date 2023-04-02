@@ -72,7 +72,7 @@ values
     
 set @@cte_max_recursion_depth = 10000000;
 
-/*генерирую фиксированное количество юзерво*/
+/*РіРµРЅРµСЂРёСЂСѓСЋ С„РёРєСЃРёСЂРѕРІР°РЅРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЋР·РµСЂРІРѕ*/
 
 insert into users (id_currency, id_country)
 with recursive iterator(n) as (
@@ -86,7 +86,7 @@ select
 from iterator;
 
 
-/*генерирую операции: в цикле по дням с примерным количеством операций*/
+/*РіРµРЅРµСЂРёСЂСѓСЋ РѕРїРµСЂР°С†РёРё: РІ С†РёРєР»Рµ РїРѕ РґРЅСЏРј СЃ РїСЂРёРјРµСЂРЅС‹Рј РєРѕР»РёС‡РµСЃС‚РІРѕРј РѕРїРµСЂР°С†РёР№*/
 drop procedure if exists pc_generate_operations;
 delimiter $$
 create procedure pc_generate_operations(dt_start date, dt_end date, rows_in_day int)

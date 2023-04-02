@@ -6,7 +6,7 @@ CREATE PROCEDURE pc_get_operations_report(dt_start datetime, dt_end datetime)
 BEGIN
 	with cte_borders as 
     (
-		/*ïğåäğàñ÷èòûâàş ãğàíèöû ïåğèîäîâ, êîòîğûå íóæíî áóäåò âçÿòü èç àãğåãàòîâ è èç äåòàëèçèğîâàííûõ îïåğàöèé*/
+		/*Ğ¿Ñ€ĞµĞ´Ñ€Ğ°ÑÑ‡Ğ¸Ñ‚Ñ‹Ğ²Ğ°Ñ Ğ³Ñ€Ğ°Ğ½Ğ¸Ñ†Ñ‹ Ğ¿ĞµÑ€Ğ¸Ğ¾Ğ´Ğ¾Ğ², ĞºĞ¾Ñ‚Ğ¾Ñ€Ñ‹Ğµ Ğ½ÑƒĞ¶Ğ½Ğ¾ Ğ±ÑƒĞ´ĞµÑ‚ Ğ²Ğ·ÑÑ‚ÑŒ Ğ¸Ğ· Ğ°Ğ³Ñ€ĞµĞ³Ğ°Ñ‚Ğ¾Ğ² Ğ¸ Ğ¸Ğ· Ğ´ĞµÑ‚Ğ°Ğ»Ğ¸Ğ·Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ½Ñ‹Ñ… Ğ¾Ğ¿ĞµÑ€Ğ°Ñ†Ğ¸Ğ¹*/
 		select 
 			if (dt_start > cast(dt_start as date), dt_start, null) dt_detail_start, 
 			if (dt_end > cast(dt_end as date), dt_end, null) dt_detail_end, 
