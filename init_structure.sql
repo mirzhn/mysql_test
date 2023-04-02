@@ -51,3 +51,4 @@ create table if not exists log_check_user (
 	otherparams json default null,
 	message smallint(6) default null
 )
+engine = innodb;
